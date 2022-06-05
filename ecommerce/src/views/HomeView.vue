@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <h1>Działa</h1>
+    <h1>{{ $t("common.login", 0) }}</h1>
   </main>
 </template>

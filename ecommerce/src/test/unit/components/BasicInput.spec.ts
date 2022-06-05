@@ -28,5 +28,4 @@ describe("BaseInput", () => {
       "Login"
     );
   });
-  it("", () => {});
 });

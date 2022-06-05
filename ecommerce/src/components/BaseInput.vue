@@ -25,3 +25,11 @@ const props = defineProps({
     :value="props.modelValue"
   />
 </template>
+<style scoped>
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>

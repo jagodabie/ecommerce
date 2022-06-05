@@ -11,5 +11,6 @@ const userPassword: Ref<string> = ref("");
   <main>
     <h1>Login</h1>
     <BaseInput />
+    <BaseInput />
   </main>
 </template>
