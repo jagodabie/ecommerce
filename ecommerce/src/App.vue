@@ -20,7 +20,8 @@ import { RouterLink, RouterView } from "vue-router";
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
+  font-family: "Open Sans", "sans-serif";
   font-weight: normal;
+  color: rgb(83, 81, 81);
 }
 </style>

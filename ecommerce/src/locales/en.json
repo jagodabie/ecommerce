@@ -1,11 +1,12 @@
 {
     "common":{
     "home": "Home", 
-    "login": "log in | Log in | LOGIN" ,
+    "login": "login | Login | LOGIN" ,
     "password": "password | Password", 
-    "forgotPassword": "Forgot Password", 
+    "forgotPassword": "Forgot Password ?", 
     "doNotHaveAccount": "Do not have an account ?",
-    "signUp": "Sign up | SIGN UP"
+    "signUp": "Sign up | SIGN UP",
+    "signIn": "Sign in | SIGN"
 
 }
 }
