@@ -3,10 +3,25 @@
     "home": "Home", 
     "login": "login | Login | LOGIN" ,
     "password": "password | Password", 
+    "repeat": "Repeat",
     "forgotPassword": "Forgot Password ?", 
     "doNotHaveAccount": "Do not have an account ?",
     "signUp": "Sign up | SIGN UP",
     "signIn": "Sign in | SIGN"
-
-}
+     },
+     "registration": {
+        "name": "First name",
+        "secondName": "Last name",
+        "email": "email",
+        "password":"password",     
+        "cellNumber":"Cell number",
+        "address":{
+            "street": "street | Street",
+            "streetNumber": "Street number",
+            "flatNumber": "Flat number",
+            "postalCode": "Postal code",
+            "city": "City"
+        },
+        "AreYouLegalAge":"Are you of legal age ?"
+     }
 }
