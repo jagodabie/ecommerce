@@ -2,25 +2,25 @@
     "common":{
     "home": "Home", 
     "login": "login | Login | LOGIN" ,
-    "password": "password | Password", 
-    "repeat": "Repeat",
+    "password": "Password | password", 
+    "repeat": "Repeat password | repeat password",
     "forgotPassword": "Forgot Password ?", 
     "doNotHaveAccount": "Do not have an account ?",
     "signUp": "Sign up | SIGN UP",
-    "signIn": "Sign in | SIGN"
+    "signIn": "Sign in | SIGN",
+    "register": "register | Register"
      },
      "registration": {
-        "name": "First name",
-        "secondName": "Last name",
-        "email": "email",
-        "password":"password",     
-        "cellNumber":"Cell number",
+        "name": "First name | first name ",
+        "secondName": "Last name | last name",
+        "email": "email",    
+        "cellNumber":"Cell number | cell number",
         "address":{
-            "street": "street | Street",
-            "streetNumber": "Street number",
-            "flatNumber": "Flat number",
-            "postalCode": "Postal code",
-            "city": "City"
+            "street": "Street | street",
+            "streetNumber": "Street number | street number",
+            "flatNumber": "Flat number | flat number",
+            "postalCode": "Postal code | postal code",
+            "city": "City | city"
         },
         "AreYouLegalAge":"Are you of legal age ?"
      }

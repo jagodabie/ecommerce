@@ -1,10 +1,13 @@
 export interface Customer {
+  accessToken: string;
   login: string;
   name: string;
   secondName: string;
   email: string;
   password?: string;
   cellNumber: number | null;
+  isAdmin?: boolean;
+  isClient?: boolean;
 }
 export interface Address {
   street: string;
@@ -15,5 +18,4 @@ export interface Address {
 }
 export interface CustomerRegistrationData extends Customer {
   address: Address;
-  isAdult: boolean;
 }

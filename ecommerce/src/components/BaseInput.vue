@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import { computed, watchEffect, watch, defineEmits } from "vue";
-import type { Ref } from "vue";
-
+import { computed, defineEmits } from "vue";
+import ErrorMessageBase from "./ErrorMessageBase.vue";
 // TODO props
 const props = defineProps({
   label: String,
   placeholder: String,
   type: String,
   name: String,
-  minLength: Number,
-  maxLength: Number,
   modelValue: String,
+  errorMessage: String,
 });
 const emit = defineEmits<{
   (e: "update:modelValue", value: string | number | null): void;
@@ -37,9 +35,8 @@ const modelValue = computed({
     :type="props.type ?? 'text'"
     :name="props.name"
     :placeholder="props.placeholder"
-    :minlength="props.minLength"
-    :maxlength="props.maxLength"
   />
+  <ErrorMessageBase :error-message="props.errorMessage" />
 </template>
 <style scoped>
 input {
