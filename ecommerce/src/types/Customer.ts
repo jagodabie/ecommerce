@@ -1,3 +1,7 @@
+export interface Credentials {
+  login: string;
+  password: string;
+}
 export interface Customer {
   accessToken: string;
   login: string;
@@ -5,9 +9,13 @@ export interface Customer {
   secondName: string;
   email: string;
   password?: string;
-  cellNumber: number | null;
   isAdmin?: boolean;
   isClient?: boolean;
+}
+export interface CustomerStore {
+  customerId: string;
+  loggedIn: boolean;
+  alreadyHasAccount: boolean;
 }
 export interface Address {
   street: string;

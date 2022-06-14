@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Ref } from "vue";
-import type { Customer } from "../types/Customer";
-
 import BaseInput from "../components/BaseInput.vue";
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
-import { useCustomerService } from "@/composables/customerService";
-
-const authenticationFailed: Ref<boolean> = ref(false);
-const CustomerService = useCustomerService();
+import { useRouter } from "vue-router";
+import { useAuthenticationStore } from "../stores/authentication";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n({
+  inheritLocale: true,
+});
+const router = useRouter();
 const schema = yup.object({
   login: yup.string().required().min(6).max(15),
   password: yup.string().required().min(4).max(20),
@@ -17,27 +16,20 @@ const schema = yup.object({
 const { errors, handleSubmit } = useForm({
   validationSchema: schema,
 });
+const userStore = useAuthenticationStore();
 const { value: login } = useField<string>("login");
 const { value: password } = useField<string>("password");
-const authentication = async (credentials: {
-  login: string;
-  password: string;
-}) => {
-  try {
-    //await CustomerService.getUser("2");
-    await CustomerService.authenticate(credentials);
-    // console.log(
-    //   CustomerService.getUser("2").then(({ result }) => console.log(result))
-    //   //CustomerService.authenticate(credentials))
-    // );
-  } catch (e) {
-    authenticationFailed.value = true;
-    console.log(e);
+const onSubmit = handleSubmit(({ login, password }) => {
+  if (password && login) {
+    userStore.authenticate({
+      login,
+      password,
+    });
   }
-};
-const onSubmit = handleSubmit((credentials) => {
-  authentication(credentials);
-  console.log(credentials);
+  if (userStore.loggedIn) {
+    alert(t("common.successFullyLogin"));
+    router.push({ name: "Home" });
+  }
 });
 </script>
 
@@ -59,6 +51,7 @@ const onSubmit = handleSubmit((credentials) => {
           :label="$t('common.password', 0)"
           :placeholder="$t('common.password', 2)"
           :name="$t('common.password', 0)"
+          :type="password"
           :error-message="errors.password"
         />
 

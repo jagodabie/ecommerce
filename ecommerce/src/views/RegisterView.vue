@@ -10,7 +10,6 @@ const userAccountCreationData: CustomerRegistrationData = reactive({
   secondName: "",
   email: "",
   password: "",
-  cellNumber: null,
   address: {
     street: "",
     streetNumber: null,
@@ -51,10 +50,6 @@ const onSubmit = () => {
             <BaseInput
               :label="$t('registration.secondName')"
               :placeholder="$t('registration.secondName', 2)"
-            />
-            <BaseInput
-              :label="$t('registration.cellNumber')"
-              :placeholder="$t('registration.cellNumber', 2)"
             />
           </div>
           <div class="form-address">

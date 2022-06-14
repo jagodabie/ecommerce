@@ -8,13 +8,13 @@
     "doNotHaveAccount": "Do not have an account ?",
     "signUp": "Sign up | SIGN UP",
     "signIn": "Sign in | SIGN",
-    "register": "register | Register"
+    "register": "register | Register",
+    "successFullyLogin": "Successfully logged in"
      },
      "registration": {
         "name": "First name | first name ",
         "secondName": "Last name | last name",
         "email": "email",    
-        "cellNumber":"Cell number | cell number",
         "address":{
             "street": "Street | street",
             "streetNumber": "Street number | street number",
@@ -24,4 +24,5 @@
         },
         "AreYouLegalAge":"Are you of legal age ?"
      }
+    
 }

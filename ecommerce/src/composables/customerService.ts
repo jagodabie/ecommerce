@@ -1,23 +1,12 @@
-import axios from "axios";
-
 import type { Customer } from "../types/Customer";
+
+import axios from "axios";
+import { hostsUrl } from "@/consts/api";
 
 export function useCustomerService() {
   return {
-    async authenticate(credentials: {
-      login: string;
-      password: string;
-    }): Promise<Customer> {
-      const response = await axios.post<Customer>(
-        "http://localhost:8000/auth",
-        credentials
-      );
-      return response.data;
-    },
-    async getUser(id: string): Promise<Customer[]> {
-      const response = await axios.get<Customer>(
-        `http://localhost:8000/users/${id}/`
-      );
+    async getCustomer(id: string): Promise<Customer> {
+      const response = await axios.get<Customer>(`${hostsUrl}users/${id}`);
       return response.data;
     },
   };
