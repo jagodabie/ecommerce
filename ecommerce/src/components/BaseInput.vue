@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, defineEmits } from "vue";
 import ErrorMessageBase from "./ErrorMessageBase.vue";
-// TODO props
+// TODO props type
 const props = defineProps({
   label: String,
   placeholder: String,

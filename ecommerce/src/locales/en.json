@@ -12,14 +12,14 @@
     "successFullyLogin": "Successfully logged in"
      },
      "registration": {
-        "name": "First name | first name ",
-        "secondName": "Last name | last name",
+        "firstName": "First name | first name | firstName",
+        "secondName": "Last name | last name | lastName",
         "email": "email",    
         "address":{
             "street": "Street | street",
-            "streetNumber": "Street number | street number",
-            "flatNumber": "Flat number | flat number",
-            "postalCode": "Postal code | postal code",
+            "streetNumber": "Street number | street number | streetNumber",
+            "flatNumber": "Flat number | flat number | flatNumber",
+            "postalCode": "Postal code | postal code | postalCode",
             "city": "City | city"
         },
         "AreYouLegalAge":"Are you of legal age ?"

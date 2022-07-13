@@ -3,7 +3,6 @@ import type { CustomerStore, Customer } from "../types/Customer";
 
 import axios from "axios";
 import { hostsUrl } from "@/consts/api";
-
 export const useAuthenticationStore = defineStore("customer", {
   state: () =>
     ({

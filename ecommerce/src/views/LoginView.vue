@@ -31,6 +31,15 @@ const onSubmit = handleSubmit(({ login, password }) => {
     router.push({ name: "Home" });
   }
 });
+console.log("PRZED TESTEM SYNCHRONICZNIE");
+const test = async () => {
+  return await fetch("http://localhost:8000/users")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+};
+
+test();
+console.log("PO TESTEM SYNCHRONICZNIE");
 </script>
 
 <template>
@@ -51,7 +60,7 @@ const onSubmit = handleSubmit(({ login, password }) => {
           :label="$t('common.password', 0)"
           :placeholder="$t('common.password', 2)"
           :name="$t('common.password', 0)"
-          :type="password"
+          :type="'password'"
           :error-message="errors.password"
         />
 

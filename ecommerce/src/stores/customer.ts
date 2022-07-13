@@ -1,22 +1,24 @@
 import { defineStore } from "pinia";
 // Import axios to make HTTP requests
 import axios from "axios";
-export const useUsersStore = defineStore("users", {
+import { hostsUrl } from "@/consts/api";
+
+export const useUserStore = defineStore("user", {
   state: () => ({
-    users: [],
+    user: {},
   }),
   getters: {
     getUsers(state) {
-      return state.users;
+      return state.user;
     },
   },
   actions: {
-    async fetchUsers() {
+    async setLoggedInCustomerInfo(id: string) {
       try {
-        const data = await axios.get("http://localhost:8000/users");
-        this.users = data.data;
+        const response = await axios.get(`${hostsUrl}users/${id}`);
+        const { result } = response.data;
+        this.user = result[0];
       } catch (error) {
-        alert(error);
         console.log(error);
       }
     },
