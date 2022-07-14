@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { computed, defineEmits } from "vue";
+import { computed } from "vue";
 import ErrorMessageBase from "./ErrorMessageBase.vue";
 // TODO props type
-const props = defineProps({
-  label: String,
-  placeholder: String,
-  type: String,
-  name: String,
-  modelValue: String,
-  errorMessage: String,
-});
+
+export interface Props {
+  label: string;
+  placeholder: string;
+  type: string;
+  name: string;
+  modelValue: string;
+  errorMessage: string;
+}
+const props = defineProps<Props>();
+
 const emit = defineEmits<{
   (e: "update:modelValue", value: string | number | null): void;
 }>();

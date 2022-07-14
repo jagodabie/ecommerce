@@ -11,6 +11,12 @@
     "register": "register | Register",
     "successFullyLogin": "Successfully logged in"
      },
+     "cart":{
+        "cart": "cart"
+     },
+     "products":{
+      "products":"products"
+     },
      "registration": {
         "firstName": "First name | first name | firstName",
         "secondName": "Last name | last name | lastName",

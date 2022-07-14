@@ -31,15 +31,6 @@ const onSubmit = handleSubmit(({ login, password }) => {
     router.push({ name: "Home" });
   }
 });
-console.log("PRZED TESTEM SYNCHRONICZNIE");
-const test = async () => {
-  return await fetch("http://localhost:8000/users")
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-};
-
-test();
-console.log("PO TESTEM SYNCHRONICZNIE");
 </script>
 
 <template>
@@ -57,20 +48,22 @@ console.log("PO TESTEM SYNCHRONICZNIE");
         <br />
         <BaseInput
           v-model="password"
-          :label="$t('common.password', 0)"
+          :label="$t('common.password', 1)"
           :placeholder="$t('common.password', 2)"
           :name="$t('common.password', 0)"
           :type="'password'"
           :error-message="errors.password"
         />
 
-        <button type="submit" class="btn" @click="onSubmit">
+        <button type="submit" class="btn">
           {{ $t("common.login", 3) }}
         </button>
       </form>
       <router-link :to="'/'">{{ $t("common.forgotPassword") }}</router-link>
 
-      <router-link :to="'/'">{{ $t("common.doNotHaveAccount") }}</router-link>
+      <router-link :to="'/register'">{{
+        $t("common.doNotHaveAccount")
+      }}</router-link>
     </div>
   </main>
 </template>

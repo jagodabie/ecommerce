@@ -2,18 +2,7 @@
 import { useForm, useField } from "vee-validate";
 import * as yup from "yup";
 import BaseInput from "../components/BaseInput.vue";
-
-const { value: login } = useField<string>("login");
-const { value: password } = useField<string>("password");
-const { value: repeatPassword } = useField<string>("repeatPassword");
-const { value: firstName } = useField<string>("firstName");
-const { value: lastName } = useField<string>("lastName");
-const { value: street } = useField<string>("street");
-const { value: streetNumber } = useField<string>("streetNumber");
-const { value: flatNumber } = useField<string>("flatNumber");
-const { value: postalCode } = useField<string>("postalCode");
-const { value: city } = useField<string>("city");
-
+import createCustomer from "@/composables/useCreateCustomer";
 const schema = yup.object({
   login: yup.string().required().min(6).max(10),
   password: yup.string().required().min(4).max(20),
@@ -29,9 +18,19 @@ const schema = yup.object({
 const { errors, handleSubmit } = useForm({
   validationSchema: schema,
 });
+const { value: login } = useField<string>("login");
+const { value: password } = useField<string>("password");
+const { value: repeatPassword } = useField<string>("repeatPassword");
+const { value: firstName } = useField<string>("firstName");
+const { value: lastName } = useField<string>("lastName");
+const { value: street } = useField<string>("street");
+const { value: streetNumber } = useField<string>("streetNumber");
+const { value: flatNumber } = useField<string>("flatNumber");
+const { value: postalCode } = useField<string>("postalCode");
+const { value: city } = useField<string>("city");
 
 const onSubmit = handleSubmit((schema) => {
-  console.log(schema);
+  createCustomer(schema);
 });
 </script>
 
@@ -52,7 +51,7 @@ const onSubmit = handleSubmit((schema) => {
             <br />
             <BaseInput
               v-model="password"
-              :label="$t('common.password', 0)"
+              :label="$t('common.password', 1)"
               :placeholder="$t('common.password', 2)"
               :name="$t('common.password', 0)"
               :error-message="errors.password"
@@ -77,7 +76,7 @@ const onSubmit = handleSubmit((schema) => {
             <BaseInput
               v-model="lastName"
               :label="$t('registration.secondName', 0)"
-              :placeholder="$t('registration.secondName', 2)"
+              :placeholder="$t('registration.secondName', 0)"
               :name="$t('registration.secondName', 2)"
               :error-message="errors.lastName"
             />
@@ -85,7 +84,7 @@ const onSubmit = handleSubmit((schema) => {
           <div class="form-address">
             <BaseInput
               v-model="street"
-              :label="$t('registration.address.street', 0)"
+              :label="$t('registration.address.street', 1)"
               :placeholder="$t('registration.address.street', 2)"
               :name="$t('registration.address.street', 2)"
               :error-message="errors.street"
@@ -118,15 +117,17 @@ const onSubmit = handleSubmit((schema) => {
             <BaseInput
               v-model="city"
               :label="$t('registration.address.city')"
-              :placeholder="$t('registration.address.city', 2)"
+              :placeholder="$t('registration.address.city', 1)"
               :name="$t('registration.address.city', 2)"
               :error-message="errors.city"
             />
           </div>
         </div>
-        <button type="submit" class="btn" @click="onSubmit">
-          {{ $t("common.register", 3) }}
-        </button>
+        <div class="btn-submit">
+          <button type="submit" class="btn">
+            {{ $t("common.register", 3) }}
+          </button>
+        </div>
       </form>
     </div>
   </main>
@@ -135,6 +136,12 @@ const onSubmit = handleSubmit((schema) => {
 .form-group {
   display: flex;
   flex-direction: row;
+}
+
+.btn-submit {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 .form-customer-contact {

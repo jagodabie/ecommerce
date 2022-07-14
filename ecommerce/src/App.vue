@@ -19,9 +19,12 @@ onMounted(() => {
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/auth">Login</RouterLink>
-        <RouterLink to="/register">Register</RouterLink>
+        <ul>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/auth">Login</RouterLink>
+          <RouterLink to="/register">Register</RouterLink>
+        </ul>
+        <div class="nav-cart">button</div>
       </nav>
     </div>
   </header>
@@ -40,6 +43,15 @@ onMounted(() => {
 }
 nav {
   padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-cart {
+  padding: 2rem;
+  background-color: brown;
+}
+a:last-child {
+  background-color: brown;
 }
 a {
   text-decoration: none;
@@ -47,6 +59,7 @@ a {
   background-color: rgba(154, 221, 195, 0.966);
   font-weight: 800;
 }
+
 a:hover {
   background-color: rgba(178, 221, 205, 0.966);
   border-bottom: solid;
